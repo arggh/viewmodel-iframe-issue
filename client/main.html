@@ -1,0 +1,31 @@
+<head>
+  <title>array-issue</title>
+</head>
+
+<template name="main">
+  {{> proxy listProps }}
+  {{> manualRender }}
+</template>
+
+<template name="manualRender">
+  <button {{b "click: renderList"}} type="button">Render to IFRAME via callback</button>
+  <iframe {{b "ref: iframe"}} id="iframe" title="preview" src="/frame" allowfullscreen="" style="width: 100%; height: 300px; border:2px solid red; margin: 0px; padding: 0px;"></iframe>
+</template>
+
+<template name="list">
+  <div style="border: 2px solid green;">
+    <pre>Alphabets:
+    {{#each alphabets}}
+      {{this}}
+    {{/each}}
+    </pre>
+    Property 'alphabets' type in List-template's viewmodel: <h3>{{arrayType}}</h3>
+  </div>
+</template>
+
+
+<template name="proxy">
+  <div id="proxy">
+    {{>Template.dynamic template=template data=dataContext }}
+  </div>
+</template>
