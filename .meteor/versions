@@ -39,8 +39,8 @@ kadira:flow-router@2.12.1
 livedata@1.0.18
 logging@1.1.17
 manuel:isdev@1.0.0
-manuel:reactivearray@1.0.5
-manuel:viewmodel@6.3.2
+manuel:reactivearray@1.0.6
+manuel:viewmodel@6.3.3
 manuel:viewmodel-debug@2.7.1
 mdg:validation-error@0.2.0
 meteor@1.7.1
