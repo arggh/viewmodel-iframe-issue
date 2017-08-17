@@ -6,3 +6,7 @@
   bottom: 1rem;
   right: 1rem;
 }
+
+.modal + .modal {
+  transform: translateY(-150%);
+}

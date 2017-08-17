@@ -25,6 +25,7 @@ Template.main.viewmodel({
 
 Template.manualRender.viewmodel({
   render() {
+    console.log(`Let's try the same inside IFRAME`);
     const iframe = document.getElementById('iframe');
     const innerWindow = iframe.contentWindow;
     innerWindow.renderTemplate({
@@ -48,16 +49,25 @@ Template.proxy.viewmodel({
 
 Template.introduction.viewmodel({
   openModal() {
-    const modal = new Modal();
-    modal.open('person', {
+    console.log(`Let's open a modal with plain hard coded values...`);
+    const modal1 = new Modal();
+    modal1.open('person', TEST_DATA_CONTEXT);
+  
+    console.log(`Let's open a modal with values from calling VM Methods...`);
+    const modal2 = new Modal();
+    modal2.open('person', {
       person: this.person(),
       persons: this.persons().array()
-    })
+    });
   }
 });
 
 Template.person.viewmodel({
   onCreated() {
+    const data = Template.currentData();
+    console.log(`The type of person property is ${typeof data.person}`);
+    console.log(`Is person instance of Object? ${data.person instanceof Object}`);
+    console.log(`Let's see what SimpleSchema thinks...`);
     new SimpleSchema({
       person: { type: Object },
       'person.name': { type: String },
@@ -65,6 +75,7 @@ Template.person.viewmodel({
       persons: { type: [Object] },
       'persons.$.name': { type: String },
       'persons.$.skills': { type: [String] }
-    }).validate(Template.currentData());
+    }).validate(data);
+    console.log('Succesfully determined person prop is actually an object!');
   }
 });

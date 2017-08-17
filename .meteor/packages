@@ -10,7 +10,8 @@ reactive-var@1.0.11            # Reactive variable for tracker
 tracker@1.1.3                 # Meteor's client-side reactive programming library
 es5-shim@4.6.15
 ecmascript@0.8.1
-manuel:viewmodel
+manuel:viewmodel@=6.3.3
 kadira:flow-router
 kadira:blaze-layout
 aldeed:simple-schema
+manuel:reactivearray@=1.0.6
