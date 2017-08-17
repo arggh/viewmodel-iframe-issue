@@ -3,24 +3,24 @@
 </head>
 
 <template name="main">
-  {{> proxy listProps }}
+  {{> proxy props }}
   {{> manualRender }}
 </template>
 
 <template name="manualRender">
-  <button {{b "click: renderList"}} type="button">Render to IFRAME via callback</button>
+  <button {{b "click: render"}} type="button">Render to IFRAME via callback</button>
   <iframe {{b "ref: iframe"}} id="iframe" title="preview" src="/frame" allowfullscreen="" style="width: 100%; height: 300px; border:2px solid red; margin: 0px; padding: 0px;"></iframe>
 </template>
 
-<template name="list">
-  <div style="border: 2px solid green;">
-    <pre>Alphabets:
-    {{#each alphabets}}
-      {{this}}
-    {{/each}}
-    </pre>
-    Property 'alphabets' type in List-template's viewmodel: <h3>{{arrayType}}</h3>
+<template name="introduction">
+  <div style="border: 2px solid green; padding: 2rem;">
+    <button {{b "click: openModal"}} type="button">Open person data</button>
   </div>
+</template>
+
+<template name="person">
+  Hello I am {{person.name}} and I'm good at
+  {{#each skill in person.skills}}{{skill}} {{/each}}
 </template>
 
 

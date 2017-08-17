@@ -1,1 +1,8 @@
 /* CSS declarations go here */
+.modal {
+  background: #ccc;
+  width: 300px;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}

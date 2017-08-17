@@ -13,3 +13,4 @@ ecmascript@0.8.1
 manuel:viewmodel
 kadira:flow-router
 kadira:blaze-layout
+aldeed:simple-schema
