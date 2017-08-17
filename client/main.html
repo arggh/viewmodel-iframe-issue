@@ -1,31 +1,15 @@
 <head>
-  <title>array-issue</title>
+  <title>reference-issue</title>
 </head>
 
-<template name="main">
-  {{> proxy listProps }}
-  {{> manualRender }}
-</template>
+<body>
+  {{> checkboxes }}
+</body>
 
-<template name="manualRender">
-  <button {{b "click: renderList"}} type="button">Render to IFRAME via callback</button>
-  <iframe {{b "ref: iframe"}} id="iframe" title="preview" src="/frame" allowfullscreen="" style="width: 100%; height: 300px; border:2px solid red; margin: 0px; padding: 0px;"></iframe>
-</template>
+<template name="checkboxes">
+  <h4>Display checkbox value via VM Binding <em>(this works)</em>: <span {{b "text: checkbox.checked"}}></span></h4>
+  {{> checkbox ref='checkbox' checked=true }}
 
-<template name="list">
-  <div style="border: 2px solid green;">
-    <pre>Alphabets:
-    {{#each alphabets}}
-      {{this}}
-    {{/each}}
-    </pre>
-    Property 'alphabets' type in List-template's viewmodel: <h3>{{arrayType}}</h3>
-  </div>
-</template>
-
-
-<template name="proxy">
-  <div id="proxy">
-    {{>Template.dynamic template=template data=dataContext }}
-  </div>
+  <h4>Display checkbox value via Helper <em>(this will not work)</em>: <span>{{isChecked}}</span></h4>
+  {{> checkbox ref='checkbox2' checked=true }}
 </template>
